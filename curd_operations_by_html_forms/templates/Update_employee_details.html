@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Employee Details</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+        .first-btn{
+            margin-left: 200px;;
+        }
+        .btn{
+            margin-top: 10px;
+        }
+        body{
+            background: lightslategrey;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1 class="text-center">Update Employee Data</h1>
+            <form action="{% url "save_update_data" employee.id %}" method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>First Name</label>
+                        <input type="text" name="f_name" value="{{ employee.f_name }}"  class="form-control" placeholder="Enter Your First Name" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Last Name</label>
+                        <input type="text" name="l_name" value="{{ employee.l_name }}" class="form-control" placeholder="Enter Your Last Name" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Mobile Number</label>
+                        <input type="number" name="mobile" value="{{ employee.mobile }}" class="form-control" placeholder="Enter Your Mobile Number">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Email ID</label>
+                        <input type="email" name="email" value="{{ employee.email }}" class="form-control" placeholder="Enter Your Email Id" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Employee Salary</label>
+                        <input type="number" name="salary" value="{{ employee.salary }}" class="form-control" placeholder="Enter Employee salary">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Employee Work Experience</label>
+                        <input type="number" name="experience" value="{{ employee.experience }}" class="form-control" placeholder="Enter Employee WOrk Experience">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Employee Location</label>
+                        <input type="text" name="location" value="{{ employee.location }}" class="form-control" placeholder="Enter Employee Location">
+                    </div>
+                <div class="col-md-6">
+                    <label>Company Name</label>
+                    <input type="text" name="company" value="{{ employee.company }}" class="form-control" placeholder="Enter Employee Company Name">
+                </div>
+                    <center>
+                        <input type="submit" value="SUBMIT" class="btn btn-success first-btn">
+                        <input type="reset" value="CLEAR" class="btn btn-danger">
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
